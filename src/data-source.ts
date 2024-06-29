@@ -9,5 +9,9 @@ export const AppDataSource = new DataSource ({
     port: port,
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+    database: process.env.DB_NAME,
+    entities:[`${__dirname}/**/entities/*.{ts,js}`],
+    //** significa q pega de qq pasta que tenham entities
+    //Pega todos os arquivos em entites que tem a extensao ts ou js
+    migrations:[`${__dirname}/**/migrations/*.{ts,js}`]
 })

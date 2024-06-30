@@ -15,4 +15,14 @@ export class UserController {
             res.status(400).send(err)
         }
     }
+    async signin(req: Request, res: Response) {
+        try{       
+            const { email, password } = await req.body 
+            new UserService().signin(email, password)
+            .then(user => res.status(200).send(user))
+            .catch(err => res.status(400).send(err))
+        } catch (err) {
+            res.status(400).send(err)
+        }
+    }
 }

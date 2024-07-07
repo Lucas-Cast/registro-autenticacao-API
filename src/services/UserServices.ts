@@ -48,4 +48,20 @@ export class UserService {
             throw err
         }
     }
+
+    async delete(id: unknown){
+        try{
+            if (!id) throw 'The id is empty'
+
+            const userRepository = new UserRepository()
+            const user = await userRepository.findUserById(id as number)
+            if (!user) throw 'No user found'
+
+            await userRepository.deleteUser(id as number)
+
+        }catch(err) {
+            throw err
+        }
+
+    }
 }

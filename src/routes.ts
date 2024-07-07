@@ -5,5 +5,6 @@ const routes = Router()
 
 routes.post('/signup', new UserController().signup)
 routes.post('/signin', new UserController().signin)
+routes.delete('/deleteUser', new UserController().delete)
 
 export default routes

@@ -25,4 +25,15 @@ export class UserController {
             res.status(400).send(err)
         }
     }
+    async delete(req: Request, res: Response) {
+        try {
+            const { id } = req.query
+            new UserService().delete(id)
+            .then(() => res.status(200).send('User successfuly deleted'))
+            .catch( err => res.status(400).send(err))
+
+        } catch(err){
+            res.status(400).send(err)
+        }
+    }
 }

@@ -26,4 +26,20 @@ export class UserRepository {
             throw err
         }
     }
+
+    async findUserById(id: number) {
+        try {
+            return await user.findOneBy({ id })
+        }catch(err) {
+            throw err
+        }
+    }
+
+    async deleteUser(id: number) {
+        try {
+            return await user.delete(id)
+        }catch(err) {
+            throw err
+        }
+    }
 }

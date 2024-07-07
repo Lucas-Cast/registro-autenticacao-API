@@ -1,7 +1,6 @@
 import { UserRepository } from "../repositories/UserRepository"
 import { hashSync, compareSync } from 'bcrypt'
-import { TokenExpiredError, sign } from 'jsonwebtoken'
-import { userInfo } from "os"
+import { sign } from 'jsonwebtoken'
 export class UserService {
     async signup(name: string, email: string, password: string) {
         try{
